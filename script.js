@@ -20,7 +20,7 @@ function updatecount(){ // This function makes it so that the counters don't lag
     setInterval(() => {
         document.getElementById("squirrelcounter").innerHTML = "Buying Another Squirrel Currenctly Costs " + squirrelprice +" Acorns"
         document.getElementById("Allpaper").innerHTML = "Ever Since You Started This Journey, You Have Made " + Allpaper + " Sheets of Paper"
-        document.getElementById("squirrel").innerHTML = "You Have " + squirrel + "Squirrels"
+        document.getElementById("squirrel").innerHTML = "You Have " + squirrel + " Squirrels"
         document.getElementById("acorn").innerHTML = "You Have " + acorn + " Acorns"
         document.getElementById("paper made").innerHTML = "You Have " + paper + " Sheets of Paper"
         document.getElementById("wood cut").innerHTML = "You Have " + wood + " Wood"
@@ -34,7 +34,7 @@ function buysquirrel() {
   if (acorn >= squirrelprice) {
    squirrel += 1
    acorn -= squirrelprice
-   document.getElementById("squirrel").innerHTML = "You Have " + squirrel + "Squirrels"
+   document.getElementById("squirrel").innerHTML = "You Have " + squirrel + " Squirrels"
    document.getElementById("acorn").innerHTML = "You Have " + acorn + " Acorns"
    squirrelprice += 10
    document.getElementById("squirrelcounter").innerHTML = "Buying Another Squirrel Currenctly Costs " + squirrelprice +" Acorns"
