@@ -109,7 +109,7 @@ function makepaper(){ // Allows you to produce paper by decreasing your amount o
     
 var saveGameLoop = window.setInterval(function() {
         localStorage.setItem("TreeIncSave", JSON.stringify(gameData))
-      }, 10000)
+      }, 15000)
 
 // These two boys right here allow you to save and load the game.
 
