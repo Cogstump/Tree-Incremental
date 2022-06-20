@@ -18,6 +18,7 @@ acorn= acorn < 0 ? 0 :acorn;
 
 function updatecount(){ // This function makes it so that the counters don't lag and show past numbers.
     setInterval(() => {
+        document.getElementById("squirrelcounter").innerHTML = "Buying Another Squirrel Currenctly Costs " + squirrelprice +" Acorns"
         document.getElementById("Allpaper").innerHTML = "Ever Since You Started This Journey, You Have Made " + Allpaper + " Sheets of Paper"
         document.getElementById("squirrel").innerHTML = "You Have " + squirrel + "Squirrels"
         document.getElementById("acorn").innerHTML = "You Have " + acorn + " Acorns"
@@ -31,14 +32,13 @@ function updatecount(){ // This function makes it so that the counters don't lag
 
 function buysquirrel() {
   if (acorn >= squirrelprice) {
-    squirrel += 1
-    acorn -= squirrelprice
-    Math.floor(acorn);
-    squirrelprice += 10
-    acorn= acorn < 0 ? 0 :acorn;
-    document.getElementById("squirrel").innerHTML = "You Have " + squirrel + " Squirrels"
-    document.getElementById("squirrelcounter").innerHTML = "Buying Another Squirrel Currenctly Costs " + squirrelprice + " Acorns"
-    var mainGameLoop = window.setInterval(function () {
+   squirrel += 1
+   acorn -= squirrelprice
+   document.getElementById("squirrel").innerHTML = "You Have " + squirrel + "Squirrels"
+   document.getElementById("acorn").innerHTML = "You Have " + acorn + " Acorns"
+   squirrelprice += 10
+   document.getElementById("squirrelcounter").innerHTML = "Buying Another Squirrel Currenctly Costs " + squirrelprice +" Acorns"
+   var mainGameLoop = window.setInterval(function () {
       cuttrees()
     }, 1000)  
   } else if (acorn < squirrelprice) {
