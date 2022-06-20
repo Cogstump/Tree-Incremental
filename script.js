@@ -1,4 +1,6 @@
 
+
+
 // The variables.
 wood = 0,
 paper = 0,
@@ -12,7 +14,7 @@ squirrel = 0,
 squirrelprice = 10,
 squirrelpower = 1
 
-
+acorn= acorn < 0 ? 0 :acorn;
 
 function updatecount(){ // This function makes it so that the counters don't lag and show past numbers.
     setInterval(() => {
@@ -30,14 +32,20 @@ function updatecount(){ // This function makes it so that the counters don't lag
 function buysquirrel() {
   if (acorn >= squirrelprice) {
     squirrel += 1
-    acorn -= 10
+    acorn -= squirrelprice
+    Math.floor(acorn);
     squirrelprice += 10
+    acorn= acorn < 0 ? 0 :acorn;
     document.getElementById("squirrel").innerHTML = "You Have " + squirrel + " Squirrels"
     document.getElementById("squirrelcounter").innerHTML = "Buying Another Squirrel Currenctly Costs " + squirrelprice + " Acorns"
     var mainGameLoop = window.setInterval(function () {
       cuttrees()
     }, 1000)  
+  } else if (acorn < squirrelprice) {
+    squirrel += 0
+    acorn= acorn < 0 ? 0 :acorn;
   }
+  acorn= acorn < 0 ? 0 :acorn;
 }
 
 
@@ -71,13 +79,6 @@ function makemoney() { // Automatically sells your paper and in turn increases y
 
 interval = setInterval(makemoney, 3000); // The "timer" which allows this function to perform automatically.
 
-function BuySquirrel() {
-  if(acorn >= 10) {
-    squirrel += 1
-    document.getElementById("squirrel").innerHTML = "You have some paper to sell."
-
-  }
-}
 
 function cuttrees(){ // Allows you to get wood.
   wood += woodperclick
@@ -116,3 +117,7 @@ var savegame = JSON.parse(localStorage.getItem("TreeIncSave"))
       if (savegame !== null) {
         gameData = savegame
     }
+
+
+// Made by Parlakarmut, with love <3
+
