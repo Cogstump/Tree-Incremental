@@ -1,20 +1,20 @@
-
 // The variables.
-    wood = 0,
-    paper = 0,
-    funds = 0,
-    paperSold = 0,
-    Allpaper = 0,
-    AxeCost = 10,
-    woodperclick = 1,
-    acorn = 0,
-    squirrel = 0,
-    squirrelprice = 10,
-    squirrelpower = 1,
-    threshold = 5,
-    sellingrate = 3000
+wood = 0,
+paper = 0,
+funds = 0,
+paperSold = 0,
+Allpaper = 0,
+AxeCost = 3,
+woodperclick = 1,
+acorn = 0,
+squirrel = 0,
+squirrelprice = 10,
+squirrelpower = 1,
+threshold = 5,
+sellingrate = 3000
 
 acorn= acorn < 0 ? 0 :acorn;
+threshold= threshold < 0 ? 0 :threshold;
 
 function updatecount(){ // This function makes it so that the counters don't lag and show past numbers.
     setInterval(() => {
