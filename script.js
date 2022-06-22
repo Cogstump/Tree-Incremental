@@ -1,5 +1,5 @@
+
 // The variables.
-var gameData {
     wood = 0,
     paper = 0,
     funds = 0,
@@ -13,7 +13,6 @@ var gameData {
     squirrelpower = 1,
     threshold = 5,
     sellingrate = 3000
-}    
 
 acorn= acorn < 0 ? 0 :acorn;
 
