@@ -1,6 +1,3 @@
-
-
-
 // The variables.
 wood = 0,
 paper = 0,
@@ -126,4 +123,3 @@ var savegame = JSON.parse(localStorage.getItem("TreeIncSave"))
 
 
 // Made by Parlakarmut, with love <3
-
