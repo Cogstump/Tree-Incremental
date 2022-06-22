@@ -1,17 +1,19 @@
 // The variables.
-wood = 0,
-paper = 0,
-funds = 0,
-paperSold = 0,
-Allpaper = 0,
-AxeCost = 10,
-woodperclick = 1,
-acorn = 0,
-squirrel = 0,
-squirrelprice = 10,
-squirrelpower = 1,
-threshold = 5,
-sellingrate = 3000
+var gameData {
+    wood = 0,
+    paper = 0,
+    funds = 0,
+    paperSold = 0,
+    Allpaper = 0,
+    AxeCost = 10,
+    woodperclick = 1,
+    acorn = 0,
+    squirrel = 0,
+    squirrelprice = 10,
+    squirrelpower = 1,
+    threshold = 5,
+    sellingrate = 3000
+}    
 
 acorn= acorn < 0 ? 0 :acorn;
 
