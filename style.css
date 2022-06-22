@@ -166,3 +166,8 @@ p.consoleOld {
     opacity: 0.6;
     border: 1px solid #ffffff;
  }
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
