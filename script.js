@@ -106,6 +106,12 @@ function makepaper(){ // Allows you to produce paper by decreasing your amount o
     document.getElementById("readout3").innerHTML = "You don't have enough wood to make paper!"
     }
 }
+
+
+function darkmode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+} 
     
 var saveGameLoop = window.setInterval(function() {
         localStorage.setItem("TreeIncSave", JSON.stringify(gameData))
