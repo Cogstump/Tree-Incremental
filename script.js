@@ -9,7 +9,9 @@ woodperclick = 1,
 acorn = 0,
 squirrel = 0,
 squirrelprice = 10,
-squirrelpower = 1
+squirrelpower = 1,
+threshold = 5,
+sellingrate = 3000
 
 acorn= acorn < 0 ? 0 :acorn;
 
@@ -27,7 +29,31 @@ function updatecount(){ // This function makes it so that the counters don't lag
 
 }
 
-function buysquirrel() {
+
+function revealbutton() { // This function checks if you have crossed the threshold (which starts at 5 and doubles ecerytime you buy it) and reveals the button.
+  var x = document.getElementById("fastsell");
+  if (funds >= threshold) {
+    x.style.display = "block";
+  } else if (funds < threshold) {
+    x.style.display = "none";
+  }
+}
+interval_reveal = setInterval(revealbutton, 1000);  // This timer checks if you crossed the threshold every second
+
+function fastsell() { // People say that selling paper was slow. I'm not complaining as I got to learn many new things whilst I was making this.
+  if(funds >= threshold){
+    threshold= threshold < 0 ? 0 :threshold;
+    sellingrate -= 500
+    funds -= threshold
+    threshold *= 2
+    Math.floor(threshold)
+  } else if (funds < threshold){
+    sellingrate -= 0
+  }
+}
+
+
+function buysquirrel() { // Allows you to buy squirrels, which Auto-cut trees for you and protect you from arthritis
   if (acorn >= squirrelprice) {
    squirrel += 1
    acorn -= squirrelprice
@@ -74,7 +100,7 @@ function makemoney() { // Automatically sells your paper and in turn increases y
         }
 }    
 
-interval = setInterval(makemoney, 3000); // The "timer" which allows this function to perform automatically.
+interval = setInterval(makemoney, sellingrate); // The "timer" which allows this function to perform automatically.
 
 
 function cuttrees(){ // Allows you to get wood.
