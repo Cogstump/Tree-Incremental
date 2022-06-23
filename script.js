@@ -137,16 +137,39 @@ function darkmode() {
   element.classList.toggle("dark-mode");
 } 
     
-var saveGameLoop = window.setInterval(function() {
-        localStorage.setItem("TreeIncSave", JSON.stringify(gameData))
-      }, 15000)
+function save() {
+  localStorage.setItem('wood', JSON.stringify(wood));
+  localStorage.setItem('paper', JSON.stringify(paper));
+  localStorage.setItem('funds', JSON.stringify(funds));
+  localStorage.setItem('paperSold', JSON.stringify(paperSold));
+  localStorage.setItem('Allpaper', JSON.stringify(Allpaper));
+  localStorage.setItem('AxeCost', JSON.stringify(AxeCost));
+  localStorage.setItem('woodperclick', JSON.stringify(woodperclick));
+  localStorage.setItem('acorn', JSON.stringify(acorn));
+  localStorage.setItem('squirrel', JSON.stringify(squirrel));
+  localStorage.setItem('squirrelprice', JSON.stringify(squirrelprice));
+  localStorage.setItem('squirrelpower', JSON.stringify(squirrelpower));
+  localStorage.setItem('threshold', JSON.stringify(threshold));
+  localStorage.setItem('sellingrate', JSON.stringify(sellingrate));
+}
 
-// These two boys right here allow you to save and load the game.
+savegame = setInterval(save, 500);
 
-var savegame = JSON.parse(localStorage.getItem("TreeIncSave"))
-      if (savegame !== null) {
-        gameData = savegame
-    }
+function load() {
+  wood = JSON.parse(localStorage.getItem('wood'));
+  paper = JSON.parse(localStorage.getItem('paper'));
+  funds = JSON.parse(localStorage.getItem('funds'));
+  paperSold = JSON.parse(localStorage.getItem('paperSold'));
+  Allpaper = JSON.parse(localStorage.getItem('Allpaper'));
+  AxeCost = JSON.parse(localStorage.getItem('AxeCost'));
+  woodperclick = JSON.parse(localStorage.getItem('woodperclick'));
+  acorn = JSON.parse(localStorage.getItem('acorn'));
+  squirrel = JSON.parse(localStorage.getItem('squirrel'));
+  squirrelprice = JSON.parse(localStorage.getItem('squirrelprice'));
+  squirrelpower = JSON.parse(localStorage.getItem('squirrelpower'));
+  threshold = JSON.parse(localStorage.getItem('threshold'));
+  sellingrate = JSON.parse(localStorage.getItem('sellingrate'));
+}
 
 
 // Made by Parlakarmut, with love <3
