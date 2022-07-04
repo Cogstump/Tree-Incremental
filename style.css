@@ -49,7 +49,7 @@ p.consoleOld {
    border: 1px solid #1a1a1a;
    background: #666666;
   
-   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+   background: -webkit -gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
    background: -webkit-linear-gradient(top, #ffffff, #888888);
    background: -moz-linear-gradient(top, #ffffff, #888888);
    background: -ms-linear-gradient(top, #ffffff, #888888);
@@ -76,7 +76,7 @@ p.consoleOld {
    border: 1px solid #898989;
    text-shadow: #d4d4d4 0 1px 0;
    background: #666666;
-   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#666666));
+   background: -webkit -gradient(linear, left top, left bottom, from(#ffffff), to(#666666));
    background: -webkit-linear-gradient(top, #ffffff, #666666);
    background: -moz-linear-gradient(top, #ffffff, #666666);
    background: -ms-linear-gradient(top, #ffffff, #666666);
@@ -90,7 +90,7 @@ p.consoleOld {
    border: 1px solid #2e2e2e;
 
    background: #d9d9d9;
-   background: -webkit-gradient(linear, left top, left bottom, from(#595959), to(#616161));
+   background: -webkit -gradient(linear, left top, left bottom, from(#595959), to(#616161));
    background: -webkit-linear-gradient(top, #595959, #d9d9d9);
    background: -moz-linear-gradient(top, #595959, #d9d9d9);
    background: -ms-linear-gradient(top, #595959, #d9d9d9);
@@ -109,7 +109,7 @@ p.consoleOld {
    border: 1px solid #1a1a1a;
    background: #666666;
     
-   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
+   background: -webkit -gradient(linear, left top, left bottom, from(#ffffff), to(#cccccc));
    background: -webkit-linear-gradient(top, #ffffff, #888888);
    background: -moz-linear-gradient(top, #ffffff, #888888);
    background: -ms-linear-gradient(top, #ffffff, #888888);
@@ -137,7 +137,7 @@ p.consoleOld {
    text-shadow: #d4d4d4 0 1px 0;
    background: #616161;
     
-   background: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#888888));
+   background: -webkit -gradient(linear, left top, left bottom, from(#f7f7f7), to(#888888));
    background: -webkit-linear-gradient(top, #f7f7f7, #888888);
    background: -moz-linear-gradient(top, #f7f7f7, #888888);
    background: -ms-linear-gradient(top, #f7f7f7, #888888);
@@ -152,7 +152,7 @@ p.consoleOld {
    border: 1px solid #2e2e2e;
     
    background: #d9d9d9;
-   background: -webkit-gradient(linear, left top, left bottom, from(#595959), to(#616161));
+   background: -webkit -gradient(linear, left top, left bottom, from(#595959), to(#616161));
    background: -webkit-linear-gradient(top, #595959, #d9d9d9);
    background: -moz-linear-gradient(top, #595959, #d9d9d9);
    background: -ms-linear-gradient(top, #595959, #d9d9d9);
@@ -177,5 +177,58 @@ body {
 .dark-mode {
  background-color: black;
  color: white;
+}
 
+.p-inline{
+   display: inline;
+}
+
+#investment {
+   width: 320px;
+   padding: 10px;
+   border: 2px solid gray;
+   margin: 100;
+}
+
+#rightColumn {
+   float: right;
+   width: 320px;
+   margin-left: 100px;    
+}
+
+.text-center {
+   text-align: center;
+}
+
+#content { width: 300px; height: 300px; border: 1px solid black; position: relative; }
+.topright { position: absolute; top: 250px; right: 500px; text-align: right; }
+.bottomright { position: absolute; bottom: 5px; right: 5px; text-align: right; }
+.toprightbuttonaxe { position: absolute; top: 500px; right: 500px; text-align: right; }
+
+.ButtonUp {
+   border-radius: 0px;
+   display: block;
+   height: 30px;
+   width: 200px;
+   background: #c8c8c8;
+   border: 1px solid rgba(0, 0, 0, 1);
+   outline: none;
+   margin-bottom: 6px;
+}
+
+.ButtonUp:hover {
+   display: block;
+   height: 30px;
+   width: 200px;
+   background: #c8c8c8;
+   border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.ButtonUp:active {
+   display: block;
+   height: 30px;
+   width: 200px;
+   background: #d1d1d1;
+   border: 1px solid rgba(0, 0, 0, 1);
+   
 }
