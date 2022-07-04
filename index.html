@@ -9,7 +9,9 @@
 </head>
 <script src="script.js" charset="utf-8" type="text/javascript"></script>
 <body>
-
+    <button class = "button2" onclick=window.location.href="index2.html">Achievements</button>
+    &nbsp;
+    <hr>
     <div id="consoleDiv">
 
         <br>
@@ -18,6 +20,7 @@
         </p>
 
         <p class = "consoleOld"> 
+            <span>&nbsp;.&nbsp;</span><span id="readout6"></span><br />
             <span>&nbsp;.&nbsp;</span><span id="readout5"></span><br />
             <span>&nbsp;.&nbsp;</span><span id="readout4"></span><br />
             <span>&nbsp;.&nbsp;</span><span id="readout3"></span><br />
@@ -29,16 +32,19 @@
     <h1 style="text-decoration: underline;">Tree Incremental</h1>
     <label> Toggle Dark Mode? </label>
     <input type="checkbox" onclick="darkmode()">
-    <hr>
+    <br>
+    <br>
+    <button class="button2" onclick="reset()">Reset Game?</button>
+    <hr align="left" width="35%">
     <p id="wood cut">You Have 0 Wood</p>
     <p id="acorn">You Have 0 Acorns</p>
-    <button onclick="cuttrees()" onclick="updatecount()">Cut Trees</button>
+    <button class = "button2" onclick="cuttrees()" onclick="updatecount()">Cut Trees</button>
     
-    <hr>
+    <hr align="left" width="35%">
 
     <p id="paper made">You Have 0 Sheets of Paper </p>
     <p id="Allpaper">Ever Since You Started This Journey, You Have Made 0 Sheets of Paper </p>
-    <button onclick="makepaper()" onclick="makemoney()" onclick="updatecount()" onclick="revealbutton()">Make A Sheet Of Paper </button>    
+    <button class = "button2" onclick="makepaper()" onclick="makemoney()" onclick="updatecount()" onclick="revealbutton()">Make A Sheet Of Paper </button>    
     <hr>
 
     <div id="businessDiv">
@@ -49,35 +55,43 @@
 
         <p id="Papersold"> 0 Paper Sold </p>
 
-        <button id="fastsell" style="display:none" onclick="fastsell()"> Click Here To Advertise Your Paper, Driving Sales Even Further  </button>
+        <button id="fastsell" style="display:none" class = "button2" onclick="fastsell()"> Click Here To Advertise Your Paper, Driving Sales Even Further  </button>
 
         <hr>
 
-
-
-    <b>Upgrades</b>
-    <br>
-    <br>
-    <button onclick="AxeUpgrade()">Upgrade Your Axe</button>
-    <p id="AxeCost">Upgrading Your Axe Currently Costs $ 3</p>
-
-        <hr>
+    </div>
 
     <div>
-        <b>Upgrades</b>
+        <b>Auto-Clickers</b>
         <br>
         <br>
-        <button onclick="buysquirrel()" onclick="updatecount()">Buy a squirrel</button>
+        <button class = "button2" onclick="buysquirrel()" onclick="updatecount()">Buy a squirrel</button>
         <p id="squirrelcounter">Buying Another Squirrel Currenctly Costs 10 Acorns</p>
         <p id="squirrel">You Have 0 Squirrels</p>
     </div>
 
     <pre>
-
+        <strong>
         .  \\
         ,` ( `.
        (  \' "
-        `-.__)_ ^This is a squirrel
+        `-.__)_ 
+    </strong>
+    ^This is a squirrel
                 </pre>
+                     
+    <div id="investment" class="topright">
+    <br>
+    <br>
+    <button onclick="deposit()" class="button2">Deposit</button>
+    <p id="deposited" class="p-inline">Deposited: $ 0</p>
+    <p id="stocks">Stocks: $ 0</p>
+    <button onclick="withdraw()" class = "button2">Withdraw</button>
+    <p id="Total" class="p-inline"><strong>Total: $ 0</strong></p>  
+    </div>
+
+    <div class="toprightbuttonaxe">
+        <button id="AxeCost" class="ButtonUp" onclick="AxeUpgrade()">  <strong>*</strong> Upgrade Your Axe. Cost: $ 3 </button>
+    </div>
 </body>
 </html>
