@@ -10,6 +10,7 @@
 <script src="script.js" charset="utf-8" type="text/javascript"></script>
 <body>
     <button class = "button2" onclick=window.location.href="index2.html">Achievements</button>
+    <button class = "button2" onclick=window.location.href="index3.html">Changelog</button>
     &nbsp;
     <hr>
     <div id="consoleDiv">
@@ -35,7 +36,7 @@
     <br>
     <br>
     <button class="button2" onclick="reset()">Reset Game?</button>
-    <hr align="left" width="35%">
+    <hr align="left" width="20%">
     <p id="wood cut">You Have 0 Wood</p>
     <p id="acorn">You Have 0 Acorns</p>
     <button class = "button2" onclick="cuttrees()" onclick="updatecount()">Cut Trees</button>
@@ -44,7 +45,7 @@
 
     <p id="paper made">You Have 0 Sheets of Paper </p>
     <p id="Allpaper">Ever Since You Started This Journey, You Have Made 0 Sheets of Paper </p>
-    <button class = "button2" onclick="makepaper()" onclick="makemoney()" onclick="updatecount()" onclick="revealbutton()">Make A Sheet Of Paper </button>    
+    <button class = "button2" onclick="makepaper()" onclick="makemoney()" onclick="updatecount()" onclick="revealbutton_fastsell()">Make A Sheet Of Paper </button>    
     <hr>
 
     <div id="businessDiv">
@@ -57,7 +58,7 @@
 
         <button id="fastsell" style="display:none" class = "button2" onclick="fastsell()"> Click Here To Advertise Your Paper, Driving Sales Even Further  </button>
 
-        <hr>
+        <hr align="left" width="45%">
 
     </div>
 
@@ -66,7 +67,7 @@
         <br>
         <br>
         <button class = "button2" onclick="buysquirrel()" onclick="updatecount()">Buy a squirrel</button>
-        <p id="squirrelcounter">Buying Another Squirrel Currenctly Costs 10 Acorns</p>
+        <p id="squirrelcounter">Buying Another Squirrel Currently Costs 10 Acorns</p>
         <p id="squirrel">You Have 0 Squirrels</p>
     </div>
 
@@ -79,8 +80,21 @@
     </strong>
     ^This is a squirrel
                 </pre>
-                     
-    <div id="investment" class="topright">
+
+    <button class="button2" onclick="buyowl()">Buy an Owl</button>
+    <p id="owlcounter">Buying Another Owl Currently Costs 20 Acorns</p>
+    <p id="owl">You Have 0 Owls</p>
+   <pre>
+    <strong>
+            /\ /\ 
+           ((ovo))
+           ():::()
+         ====V=V====
+    </strong>
+    ^This is an owl
+    </pre>
+                
+    <div id="investment" class="topright" style="display:none">
     <br>
     <br>
     <button onclick="deposit()" class="button2">Deposit</button>
@@ -92,6 +106,18 @@
 
     <div class="toprightbuttonaxe">
         <button id="AxeCost" class="ButtonUp" onclick="AxeUpgrade()">  <strong>*</strong> Upgrade Your Axe. Cost: $ 3 </button>
+        <button id="stock" class="ButtonUp2" style="display:none" onclick="unlockstocks()"><strong>*</strong> Teach Your Squirrels How To Trade Stocks. Cost: $ 250 </button>
+    </div>
+
+    <div class="topright2" id="box_gamble">
+        <h3 style="text-decoration: underline;" id="yougot">You Got: </h3>
+        <button class="button2" onclick="gambledice()">Roll The Dice!</button>
+        <br>
+        <br>
+        <label>Input how Much you want to Gamble: </label>
+        <br>
+        <input type="text" id="myText" value="10">
+        <button class="button2" onclick="submitfunc()">Submit</button>
     </div>
 </body>
 </html>
