@@ -15,31 +15,97 @@ let q = {
   sellingrate: 3000,
   fundsdeposited: 0,
   stocks: 0,
-  total: 0
+  total: 0,
+  owl: 0,
+  owlprice: 20,
+  owlpower: 1,
 }
 
 q.acorn= q.acorn < 0 ? 0 :q.acorn;
 q.threshold= q.threshold < 0 ? 0 :q.threshold;
 q.stocks= q.stocks < 0 ? 0 :q.stocks;
+let submitted
+let submitcheck = "false"
+let stockcheck = "false"
 
-function updatecount(){ // This function makes it so that the counters don't lag and show past numbers.
-    setInterval(() => {
-        document.getElementById("squirrelcounter").innerHTML = "Buying Another Squirrel Currenctly Costs " + q.squirrelprice +" Acorns"
-        document.getElementById("Allpaper").innerHTML = "Ever Since You Started This Journey, You Have Made " + q.Allpaper + " Sheets of Paper"
-        document.getElementById("squirrel").innerHTML = "You Have " + q.squirrel + " Squirrels"
-        document.getElementById("acorn").innerHTML = "You Have " + q.acorn + " Acorns"
-        document.getElementById("paper made").innerHTML = "You Have " + q.paper + " Sheets of Paper"
-        document.getElementById("wood cut").innerHTML = "You Have " + q.wood + " Wood"
-        document.getElementById("funds").innerHTML = "Available Funds: $ " + q.funds
-        document.getElementById("Papersold").innerHTML = q.paperSold + " Paper Sold"
-    }, 40);
 
+console.log("[Are you here to check for some bugs or just to cheat? Whichever it is, you're free to do so!]");
+
+
+function gambledice() {
+  if (submitcheck = "true" ) {
+    let randomdice = Math.floor(Math.random()*(6)+1);
+    console.log(randomdice)
+    document.getElementById("yougot").innerHTML = "You Got: " + randomdice
+    if ( randomdice != 6) {
+    document.getElementById("readout6").innerHTML = "Well, better luck next time!"
+  } else if ( randomdice = 6 ) {
+    document.getElementById("readout6").innerHTML = "Congratu - damn - lations!"
+    q.funds += submitted * 2.7
+    q.funds = Math.ceil(q.funds)
+    document.getElementById("funds").innerHTML = "Available Funds: $ " + q.funds
+}
+ submitcheck = "false"
+ }
+}
+
+
+function submitfunc() {
+  submitted = document.getElementById("myText").value;
+  if (q.funds >= submitted) {
+    q.funds -= submitted
+    document.getElementById("funds").innerHTML = "Available Funds: $ " + q.funds
+    submitcheck = "true"
+  } else if (q.funds < submitted) {
+    console.log("Your mere existence is a sin");
+  }
+}
+
+
+
+function buyowl() {
+  if (q.acorn >= q.owlprice) {
+    q.owl += 1
+    q.acorn -= q.owlprice
+    document.getElementById("owl").innerHTML = "You Have " + q.owl + " Owls"
+    document.getElementById("acorn").innerHTML = "You Have " + q.acorn + " Acorns"
+    q.owlprice *= 1.8
+    q.owlprice = Math.ceil(q.owlprice);
+    document.getElementById("owlcounter").innerHTML = "Buying Another Owl Currently Costs " + q.owlprice + " Acorns"
+    var owlpaper = window.setInterval(function () {
+      makepaper()
+    }, 5000)  
+   } else if (q.acorn < q.owlprice) {
+     q.owl += 0
+     q.acorn= q.acorn < 0 ? 0 :q.acorn;
+   }
+   q.acorn= q.acorn < 0 ? 0 :q.acorn;
+ }
+
+
+function revealstocktrade() {
+  let stocks = document.getElementById("stock");
+  if (q.funds >= 50 && stockcheck == "false") {
+    stocks.style.display = "block";
+  }
+}
+interval_reveal_stock = setInterval(revealstocktrade, 500);
+
+function unlockstocks() {
+  if (q.funds >= 250) {
+    q.funds -= 250
+    let b = document.getElementById("investment");
+    b.style.display = "block";
+    let c = document.getElementById("stock");
+    c.style.display = "none";
+    stockcheck = "true"
+  }
 }
 
 
 function reset() {
-  let answer = confirm('Are you sure you want to reset the game?');
-  if(answer = true) {
+  let confirm = prompt('Type YES to confirm that you want to delete all game data: ');
+  if (confirm == "YES" ) {
     q.wood= 0,
     q.paper= 0,
     q.funds= 0,
@@ -55,7 +121,30 @@ function reset() {
     q.sellingrate= 3000,
     q.fundsdeposited= 0,
     q.stocks= 0,
-    q.total= 0
+    q.total= 0,
+    q.owl= 0,
+    q.owlprice= 20,
+    q.owlpower= 0
+  } else if (confirm == "CHEATS") {
+    q.wood= 1000000,
+    q.paper= 1000000,
+    q.funds= 1000000,
+    q.paperSold= 0,
+    q.Allpaper= 0,
+    q.AxeCost= 3,
+    q.woodperclick= 1000000,
+    q.acorn= 1000000,
+    q.squirrel= 1000000,
+    q.squirrelprice= 10,
+    q.squirrelpower= 1000000,
+    q.threshold= 5,
+    q.sellingrate= 3000,
+    q.fundsdeposited= 0,
+    q.stocks= 0,
+    q.total= 0,
+    q.owl= 1000000,
+    q.owlprice= 20,
+    q.owlpower= 0
   }
 }
 
@@ -107,7 +196,7 @@ function withdraw() {
 }
 
 
-function revealbutton() { // This function checks if you have crossed the threshold (which starts at 5 and doubles ecerytime you buy it) and reveals the button.
+function revealbutton_fastsell() { 
   let x = document.getElementById("fastsell");
   if (q.funds >= q.threshold) {
     x.style.display = "block";
@@ -115,12 +204,12 @@ function revealbutton() { // This function checks if you have crossed the thresh
     x.style.display = "none";
   }
 }
-interval_reveal = setInterval(revealbutton, 1000);  // This timer checks if you crossed the threshold every second
+interval_reveal_fastsell = setInterval(revealbutton_fastsell, 1000);  // This timer checks if you crossed the threshold every second
 
-function fastsell() { // People say that selling paper was slow. I'm not complaining as I got to learn many new things whilst I was making this.
+function fastsell() { 
   if(q.funds >= q.threshold){
     q.threshold= q.threshold < 0 ? 0 :q.threshold;
-    q.sellingrate -= 500
+    q.sellingrate -= 250
     q.funds -= q.threshold
     q.threshold *= 2
     Math.floor(q.threshold)
@@ -156,7 +245,7 @@ function AxeUpgrade() { // Allows you to get more wood per click but in turn tak
       q.woodperclick += 1
       q.AxeCost *= 2
       document.getElementById("AxeCost").innerHTML = "* Upgrade Your Axe. Cost: $ " + q.AxeCost 
-      document.getElementById("readout4").innerHTML = "You have enough funds to upgrade your axe."
+      document.getElementById("readout4").innerHTML = " "
       document.getElementById("funds").innerHTML = "Available Funds: $ " + q.funds    
     } else if (q.AxeCost > q.funds) {
       document.getElementById("readout4").innerHTML = "You don't have enough money to upgrade your axe!"        
@@ -172,7 +261,7 @@ function makemoney() { // Automatically sells your paper and in turn increases y
         document.getElementById("paper made").innerHTML = "You Have " + q.paper + " Sheets of Paper"
         document.getElementById("funds").innerHTML = "Available Funds: $ " + q.funds
         document.getElementById("Papersold").innerHTML = q.paperSold + " Paper Sold"
-        document.getElementById("readout2").innerHTML = "You have some paper to sell."
+        document.getElementById("readout2").innerHTML = " "
     } else if (q.paper <= 0) {
         document.getElementById("readout2").innerHTML = "You don't have any paper to sell!"
         }
@@ -224,4 +313,4 @@ var saveGameLoop = window.setInterval(function() {
 }, 150)
 
 
-// Made by Parlakarmut, with love <3
+// Made by Cogstump, with love <3
