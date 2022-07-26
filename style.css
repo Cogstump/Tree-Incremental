@@ -1,8 +1,8 @@
 #consoleDiv {
   
-   float: left;
+   float: right;
    background: black;    
-   width: 100%;
+   width: 79%;
  }
 
  p.clean {
@@ -184,6 +184,7 @@ body {
 }
 
 #investment {
+   height: 150px;
    width: 320px;
    padding: 10px;
    border: 2px solid gray;
@@ -201,7 +202,8 @@ body {
 }
 
 #content { width: 300px; height: 300px; border: 1px solid black; position: relative; }
-.topright { position: absolute; top: 250px; right: 500px; text-align: right; }
+.topright { position: absolute; top: 250px; right: 500px; text-align: center; }
+.topright2 { position: absolute; top: 250px; right: 50px; text-align: center; }
 .bottomright { position: absolute; bottom: 5px; right: 5px; text-align: right; }
 .toprightbuttonaxe { position: absolute; top: 500px; right: 500px; text-align: right; }
 
@@ -230,5 +232,54 @@ body {
    width: 200px;
    background: #d1d1d1;
    border: 1px solid rgba(0, 0, 0, 1);
+   
+}
+
+.ButtonUp2 {
+   border-radius: 0px;
+   display: block;
+   height: 35px;
+   width: 200px;
+   background: #c8c8c8;
+   border: 1px solid rgba(0, 0, 0, 1);
+   outline: none;
+   margin-bottom: 6px;
+}
+
+.ButtonUp2:hover {
+   display: block;
+   height: 35px;
+   width: 200px;
+   background: #c8c8c8;
+   border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.ButtonUp2:active {
+   display: block;
+   height: 35px;
+   width: 200px;
+   background: #d1d1d1;
+   border: 1px solid rgba(0, 0, 0, 1);
+   
+}
+
+#box_gamble {
+   height: 150px;
+   width: 320px;
+   padding: 10px;
+   border: 2px solid gray;
+}
+
+/* #gamble_dice {
+   height: 70px;
+   width: 50px;
+   border: 2px solid gray;
+   padding: 50px;
+   margin-bottom: 20px;
+   margin-right: 280px;
+}
+
+#gambletext {
+   position: relative;
    
 }
